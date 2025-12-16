@@ -4,8 +4,12 @@ from pathlib import Path
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
-def load_raw(name="real_estate.csv"):
+def load_raw(name):
     path = DATA_DIR / "raw" / name
+    return pd.read_csv(path)
+
+def load_processed(name):
+    path = DATA_DIR / "processed" / name
     return pd.read_csv(path)
 
 def save_processed(df, name):
